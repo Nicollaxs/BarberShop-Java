@@ -43,7 +43,7 @@ public class Agenda extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void exibirTelaAgenda() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
