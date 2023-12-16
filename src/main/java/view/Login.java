@@ -3,6 +3,9 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controller.LoginController;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -19,11 +22,13 @@ public class Login extends JFrame {
     private JPanel contentPane;
     private JTextField textFieldUsuario;
     private JPasswordField fieldSenha;
+    private final LoginController loginController;
 
     /**
      * Create the frame.
      */
     public Login() {
+        loginController = new LoginController(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 600, 830);
         contentPane = new JPanel();
@@ -35,33 +40,42 @@ public class Login extends JFrame {
         JButton btnEnviar = new JButton("Enviar");
         btnEnviar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                // Adicione aqui a lógica que deseja executar quando o botão "Enviar" for clicado.
+                loginController.fizTarefa();
+                loginController.entrarNoSistema();
             }
         });
 
+        JButton btnCadastrar = new JButton("Cadastrar");
+        btnCadastrar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+            }
+        });
+        btnCadastrar.setBounds(240, 462, 117, 25);
+        contentPane.add(btnCadastrar);
+
         fieldSenha = new JPasswordField();
-        fieldSenha.setBounds(214, 377, 162, 31);
+        fieldSenha.setBounds(214, 358, 162, 31);
         contentPane.add(fieldSenha);
-        btnEnviar.setBounds(235, 454, 117, 25);
+        btnEnviar.setBounds(240, 414, 117, 25);
         contentPane.add(btnEnviar);
 
         textFieldUsuario = new JTextField();
         textFieldUsuario.setColumns(10);
-        textFieldUsuario.setBounds(214, 282, 162, 31);
+        textFieldUsuario.setBounds(214, 272, 162, 31);
         contentPane.add(textFieldUsuario);
 
         JLabel lblSenha = new JLabel("Senha");
         lblSenha.setForeground(Color.WHITE);
         lblSenha.setFont(new Font("Dialog", Font.BOLD, 15));
         lblSenha.setBackground(Color.WHITE);
-        lblSenha.setBounds(214, 321, 120, 60);
+        lblSenha.setBounds(214, 302, 120, 60);
         contentPane.add(lblSenha);
 
         JLabel lblUsuario = new JLabel("Usuario");
         lblUsuario.setForeground(Color.WHITE);
         lblUsuario.setFont(new Font("Dialog", Font.BOLD, 15));
         lblUsuario.setBackground(Color.WHITE);
-        lblUsuario.setBounds(214, 230, 120, 60);
+        lblUsuario.setBounds(214, 216, 120, 60);
         contentPane.add(lblUsuario);
 
         JLabel lblLogin = new JLabel("Login");
@@ -73,18 +87,35 @@ public class Login extends JFrame {
 
         JLabel imagemDeFundo = new JLabel("");
         imagemDeFundo.setFont(new Font("Dialog", Font.BOLD, 25));
-        imagemDeFundo.setIcon(new ImageIcon("/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/painel-login.png"));
+        imagemDeFundo.setIcon(new ImageIcon(
+                "/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/painel-login.png"));
         imagemDeFundo.setBounds(61, 165, 441, 335);
         imagemDeFundo.setBackground(Color.WHITE);
         contentPane.add(imagemDeFundo);
 
         JLabel painelPreto = new JLabel("");
         painelPreto.setBounds(0, -49, 600, 885);
-        painelPreto.setIcon(new ImageIcon("/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/Logo.jpg"));
+        painelPreto.setIcon(
+                new ImageIcon("/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/Logo.jpg"));
         contentPane.add(painelPreto);
     }
 
-    // Método público para exibir o frame
+    public JTextField getTextFieldUsuario() {
+        return textFieldUsuario;
+    }
+
+    public JPasswordField getFieldSenha() {
+        return fieldSenha;
+    }
+
+    public String getUsuario() {
+        return textFieldUsuario.getText();
+    }
+
+    public String getSenha() {
+        return fieldSenha.getText();
+    }
+
     public void exibirLogin() {
         setVisible(true);
     }

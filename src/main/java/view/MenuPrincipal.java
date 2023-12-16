@@ -8,12 +8,6 @@ import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
-import java.awt.EventQueue;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JPopupMenu;
-
 public class MenuPrincipal extends JFrame {
 
     private static final long serialVersionUID = 1L;
@@ -51,7 +45,8 @@ public class MenuPrincipal extends JFrame {
 
         JLabel lblImagemMenuPrincipal = new JLabel("");
         lblImagemMenuPrincipal.setBounds(0, -30, 912, 600);
-        lblImagemMenuPrincipal.setIcon(new ImageIcon("/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/menuPrincipal.jpg"));
+        lblImagemMenuPrincipal.setIcon(new ImageIcon(
+                "/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/menuPrincipal.jpg"));
         contentPane.add(lblImagemMenuPrincipal);
     }
 
@@ -59,23 +54,4 @@ public class MenuPrincipal extends JFrame {
         setVisible(true);
     }
 
-    private static void addPopup(Component component, final JPopupMenu popup) {
-        component.addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                if (e.isPopupTrigger()) {
-                    showMenu(e);
-                }
-            }
-
-            public void mouseReleased(MouseEvent e) {
-                if (e.isPopupTrigger()) {
-                    showMenu(e);
-                }
-            }
-
-            private void showMenu(MouseEvent e) {
-                popup.show(e.getComponent(), e.getX(), e.getY());
-            }
-        });
-    }
 }
