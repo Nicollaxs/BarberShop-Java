@@ -1,7 +1,7 @@
-package controller.Helper;
+package Controller.Helper;
 
-import model.Usuario;
-import view.Login;
+import Modelo.Usuario;
+import View.Login;
 
 public class LoginHelper {
 

@@ -1,19 +1,22 @@
 
-import model.Agendamento;
-import model.Cliente;
-import model.Pessoa;
-import model.Usuario;
-import view.Agenda;
-import view.Login;
-import view.MenuPrincipal;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import Modelo.Pessoa;
+import Modelo.Usuario;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Login login = new Login();
-		login.exibirLogin();
+		Pessoa pessoa = new Usuario(0, "", "");
 
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("barbershop");
+		EntityManager em = factory.createEntityManager();
+
+		em.getTransaction().begin();
+		em.persist(pessoa);
+		em.getTransaction().commit();
 	}
 
 }

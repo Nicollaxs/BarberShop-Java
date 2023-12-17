@@ -1,14 +1,22 @@
-package model;
+package Modelo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public abstract class Pessoa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id;
     protected String nome;
-    protected char sexo;
+    protected String sexo;
     protected Date dataNascimento;
     protected String telefone;
     protected String email;
@@ -19,7 +27,7 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public Pessoa(int id, String nome, char sexo, String dataNascimento, String telefone, String email, String rg) {
+    public Pessoa(int id, String nome, String sexo, String dataNascimento, String telefone, String email, String rg) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
@@ -42,11 +50,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

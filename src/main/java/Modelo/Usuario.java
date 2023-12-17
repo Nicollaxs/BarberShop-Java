@@ -1,4 +1,4 @@
-package model;
+package Modelo;
 
 public class Usuario extends Pessoa {
 
@@ -10,7 +10,7 @@ public class Usuario extends Pessoa {
         this.senha = senha;
     }
 
-    public Usuario(int id, String nome, char sexo, String dataNascimento, String telefone, String email, String rg,
+    public Usuario(int id, String nome, String sexo, String dataNascimento, String telefone, String email, String rg,
             String senha, String nivelDeAcesso) {
         super(id, nome, sexo, dataNascimento, telefone, email, rg);
         this.senha = senha;

@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,6 +8,7 @@ import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.border.EmptyBorder;
+
 public class MenuPrincipal extends JFrame {
 
     private static final long serialVersionUID = 1L;
@@ -46,7 +47,7 @@ public class MenuPrincipal extends JFrame {
         JLabel lblImagemMenuPrincipal = new JLabel("");
         lblImagemMenuPrincipal.setBounds(0, -30, 912, 600);
         lblImagemMenuPrincipal.setIcon(new ImageIcon(
-                "/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/menuPrincipal.jpg"));
+                "src/main/java/view/imagens/menuPrincipal.jpg"));
         contentPane.add(lblImagemMenuPrincipal);
     }
 
