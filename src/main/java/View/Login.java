@@ -13,6 +13,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
@@ -41,7 +42,12 @@ public class Login extends JFrame {
         btnEnviar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 loginController.fizTarefa();
-                loginController.entrarNoSistema();
+                try {
+                    loginController.entrarNoSistema();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
 

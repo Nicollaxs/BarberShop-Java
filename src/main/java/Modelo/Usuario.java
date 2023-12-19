@@ -1,9 +1,16 @@
 package Modelo;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Usuario extends Pessoa {
 
     private String senha;
     private String nivelDeAcesso;
+
+    public Usuario() {
+        super(1,"nome");
+    }
 
     public Usuario(int id, String nome, String senha) {
         super(id, nome);

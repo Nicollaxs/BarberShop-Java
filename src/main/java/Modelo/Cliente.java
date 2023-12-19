@@ -1,7 +1,5 @@
 package Modelo;
 
-import java.util.Date;
-
 public class Cliente extends Pessoa {
 
     private String endereco;
