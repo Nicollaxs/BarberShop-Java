@@ -12,7 +12,7 @@ public class LoginHelper {
     }
 
     public Usuario obterModelo() {
-        Usuario modelo = new Usuario(0, view.getUsuario(), view.getSenha());
+        Usuario modelo = new Usuario(view.getUsuario(), view.getSenha());
         return modelo;
     }
 

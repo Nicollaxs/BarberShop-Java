@@ -46,8 +46,8 @@ public class MenuPrincipal extends JFrame {
 
         JLabel lblImagemMenuPrincipal = new JLabel("");
         lblImagemMenuPrincipal.setBounds(0, -30, 912, 600);
-        lblImagemMenuPrincipal.setIcon(new ImageIcon(
-                "src/main/java/view/imagens/menuPrincipal.jpg"));
+        lblImagemMenuPrincipal.setIcon(new ImageIcon(getClass().getResource(
+                "imagens/menuPrincipal.jpg")));
         contentPane.add(lblImagemMenuPrincipal);
     }
 

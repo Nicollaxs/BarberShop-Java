@@ -22,13 +22,11 @@ public abstract class Pessoa {
     protected String email;
     protected String rg;
 
-    public Pessoa(int id, String nome) {
-        this.id = id;
+    public Pessoa(String nome) {
         this.nome = nome;
     }
 
-    public Pessoa(int id, String nome, String sexo, String dataNascimento, String telefone, String email, String rg) {
-        this.id = id;
+    public Pessoa(String nome, String sexo, String dataNascimento, String telefone, String email, String rg) {
         this.nome = nome;
         this.sexo = sexo;
         try {

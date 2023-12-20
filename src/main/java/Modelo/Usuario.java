@@ -9,17 +9,17 @@ public class Usuario extends Pessoa {
     private String nivelDeAcesso;
 
     public Usuario() {
-        super(1,"nome");
+        super("nome");
     }
 
-    public Usuario(int id, String nome, String senha) {
-        super(id, nome);
+    public Usuario(String nome, String senha) {
+        super(nome);
         this.senha = senha;
     }
 
-    public Usuario(int id, String nome, String sexo, String dataNascimento, String telefone, String email, String rg,
+    public Usuario(String nome, String sexo, String dataNascimento, String telefone, String email, String rg,
             String senha, String nivelDeAcesso) {
-        super(id, nome, sexo, dataNascimento, telefone, email, rg);
+        super(nome, sexo, dataNascimento, telefone, email, rg);
         this.senha = senha;
         this.nivelDeAcesso = nivelDeAcesso;
     }
