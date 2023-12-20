@@ -1,11 +1,21 @@
 package Modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Clientes")
 public class Cliente extends Pessoa {
 
     private String endereco;
     private String cep;
 
-    public Cliente(int id, String nome, String endereco, String cep) {
+    public Cliente() {
+        super("");
+    }
+
+    public Cliente(String nome, String endereco, String cep) {
         super(nome);
         this.endereco = endereco;
         this.cep = cep;

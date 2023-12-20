@@ -41,12 +41,10 @@ public class Login extends JFrame {
         JButton btnEnviar = new JButton("Enviar");
         btnEnviar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                loginController.fizTarefa();
                 try {
                     loginController.entrarNoSistema();
                 } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    e.getMessage();
                 }
             }
         });

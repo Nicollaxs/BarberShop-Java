@@ -16,7 +16,13 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import Controller.ServicoController;
+
 import javax.swing.ListSelectionModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Agenda extends JFrame {
 
@@ -26,9 +32,12 @@ public class Agenda extends JFrame {
 	private JTextField textFieldValor;
 	private JTextField textFieldData;
 	private JTextField textFieldHora;
+	private JTextArea textAreaObservacao;
 	private JTable table;
+	private ServicoController agendaController;
 
 	public Agenda() {
+		agendaController = new ServicoController(this);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 835, 657);
 		contentPane = new JPanel();
@@ -64,6 +73,17 @@ public class Agenda extends JFrame {
 			}
 		};
 
+		JButton btnEnviarAgenda = new JButton("Enviar");
+		btnEnviarAgenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				agendaController.salvaAgenda();
+			}
+		});
+		btnEnviarAgenda.setForeground(new Color(255, 255, 255));
+		btnEnviarAgenda.setBackground(new Color(51, 209, 122));
+		btnEnviarAgenda.setBounds(483, 379, 307, 35);
+		contentPane.add(btnEnviarAgenda);
+
 		JPanel panel = new JPanel();
 		panel.setBounds(34, 420, 756, 181);
 		contentPane.add(panel);
@@ -78,7 +98,7 @@ public class Agenda extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(table);
 		panel.add(scrollPane, BorderLayout.NORTH);
 
-		JTextArea textAreaObservacao = new JTextArea();
+		textAreaObservacao = new JTextArea();
 		textAreaObservacao.setBounds(473, 110, 317, 257);
 		contentPane.add(textAreaObservacao);
 
@@ -160,16 +180,41 @@ public class Agenda extends JFrame {
 
 		JLabel painelPretoAgenda = new JLabel("");
 		painelPretoAgenda.setIcon(new ImageIcon(
-				"/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/Agenda-PainelFundo.png"));
+				getClass().getResource("imagens/Agenda-PainelFundo.png")));
 		painelPretoAgenda.setBounds(-24, 12, 837, 603);
 		contentPane.add(painelPretoAgenda);
 
 		JLabel imagemDeFundoAgenda = new JLabel("");
 		imagemDeFundoAgenda.setIcon(new ImageIcon(
-				"/home/nicollas/eclipse-workspace/BarberShop/src/main/java/view/imagens/AgendaFundo.png"));
+				getClass().getResource(
+						"imagens/AgendaFundo.png")));
 		imagemDeFundoAgenda.setBounds(0, 0, 825, 627);
 		contentPane.add(imagemDeFundoAgenda);
+	}
 
+	public int getId() {
+		int id = Integer.parseInt(textFieldId.getText());
+		return id;
+	}
+
+	public int getValor() {
+		int valor = Integer.parseInt(textFieldValor.getText());
+		return valor;
+	}
+
+	public String getData() {
+		String data = textFieldData.getText();
+		return data;
+	}
+
+	public String getHora() {
+		String hora = textFieldHora.getText();
+		return hora;
+	}
+
+	public String getObservacao() {
+		String obs = textAreaObservacao.getText();
+		return obs;
 	}
 
 	public void exibirTelaAgenda() {

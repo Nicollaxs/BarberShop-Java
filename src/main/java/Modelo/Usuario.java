@@ -1,8 +1,10 @@
 package Modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Usuarios")
 public class Usuario extends Pessoa {
 
     private String senha;

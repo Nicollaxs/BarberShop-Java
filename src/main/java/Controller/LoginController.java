@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.swing.JOptionPane;
 
+
 import Controller.Helper.LoginHelper;
 import Controller.db.JPAUtil;
 import Modelo.Usuario;
@@ -38,19 +39,12 @@ public class LoginController {
                 view.dispose();
                 menu.exibirMenuPrincipal();
             }
-        } catch (
-
-        NoResultException e) {
+        } catch (NoResultException e) {
             JOptionPane.showMessageDialog(view, "Usuário ou senha inválidos", "Erro de Login",
                     JOptionPane.ERROR_MESSAGE);
         } finally {
             em.close();
         }
-    }
-
-    public void fizTarefa() {
-        System.out.println("Busquei algo no banco de dados");
-        System.out.println(view.getUsuario());
     }
 
 }

@@ -1,12 +1,15 @@
 package View;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JMenu;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class MenuPrincipal extends JFrame {
@@ -25,9 +28,22 @@ public class MenuPrincipal extends JFrame {
         menuBar.add(btnCadastro);
 
         JMenuItem opcaoUsuario = new JMenuItem("Usuario");
+        opcaoUsuario.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Tela de cadastro usuario
+
+            }
+
+        });
         btnCadastro.add(opcaoUsuario);
 
         JMenuItem opcaoServico = new JMenuItem("Serviço");
+        opcaoServico.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Agenda agenda = new Agenda();
+                agenda.exibirTelaAgenda();
+            }
+        });
         btnCadastro.add(opcaoServico);
 
         JMenuItem opcaoCliente = new JMenuItem("Cliente");
