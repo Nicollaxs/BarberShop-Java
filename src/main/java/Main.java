@@ -1,10 +1,3 @@
-import javax.persistence.EntityManager;
-import javax.swing.text.html.parser.Entity;
-
-import Controller.db.JPAUtil;
-import Modelo.Cliente;
-import Modelo.Usuario;
-import View.Agenda;
 import View.Login;
 
 public class Main {
@@ -12,6 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		Login login = new Login();
 		login.exibirLogin();
+
 		// EntityManager em = JPAUtil.getEnityManager();
 		// Login login = new Login();
 		// login.exibirLogin();

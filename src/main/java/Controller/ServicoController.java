@@ -20,11 +20,6 @@ public class ServicoController {
     }
 
     public void salvaAgenda() {
-        AgendaDAO agendaDAO = new AgendaDAO(em);
-        Servico servico = agendaHelper.obterServico();
-        em.getTransaction().begin();
-        agendaDAO.salvarAgenda(servico);
-        em.getTransaction().commit();
-        em.close();
+
     }
 }

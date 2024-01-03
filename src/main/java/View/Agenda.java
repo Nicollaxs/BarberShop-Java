@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.ServicoController;
+import Modelo.Servico;
 
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
@@ -35,6 +36,7 @@ public class Agenda extends JFrame {
 	private JTextArea textAreaObservacao;
 	private JTable table;
 	private ServicoController agendaController;
+	private JTextField textFieldNome;
 
 	public Agenda() {
 		agendaController = new ServicoController(this);
@@ -79,6 +81,11 @@ public class Agenda extends JFrame {
 				agendaController.salvaAgenda();
 			}
 		});
+
+		textFieldNome = new JTextField();
+		textFieldNome.setColumns(10);
+		textFieldNome.setBounds(134, 159, 155, 26);
+		contentPane.add(textFieldNome);
 		btnEnviarAgenda.setForeground(new Color(255, 255, 255));
 		btnEnviarAgenda.setBackground(new Color(51, 209, 122));
 		btnEnviarAgenda.setBounds(483, 379, 307, 35);
@@ -127,9 +134,9 @@ public class Agenda extends JFrame {
 		comboBoxServico.setBounds(132, 203, 157, 24);
 		contentPane.add(comboBoxServico);
 
-		JComboBox comboBoxCliente = new JComboBox();
-		comboBoxCliente.setBounds(132, 159, 157, 24);
-		contentPane.add(comboBoxCliente);
+		for (Servico servico : Servico.values()) {
+			comboBoxServico.addItem(servico);
+		}
 
 		textFieldId = new JTextField();
 		textFieldId.setBounds(134, 110, 155, 26);

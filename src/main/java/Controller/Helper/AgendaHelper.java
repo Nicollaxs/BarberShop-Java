@@ -10,9 +10,5 @@ public class AgendaHelper {
         this.agenda = agenda;
     }
 
-    public Servico obterServico() {
-        Servico servico = new Servico(agenda.getId(), agenda.getObservacao(), agenda.getValor());
-        return servico;
-    }
-
+   
 }
