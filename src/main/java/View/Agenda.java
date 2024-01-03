@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.ServicoController;
+import Controller.AgendaController;
 import Modelo.Servico;
 
 import javax.swing.ListSelectionModel;
@@ -29,17 +29,16 @@ public class Agenda extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textFieldId;
 	private JTextField textFieldValor;
 	private JTextField textFieldData;
 	private JTextField textFieldHora;
 	private JTextArea textAreaObservacao;
 	private JTable table;
-	private ServicoController agendaController;
+	private AgendaController agendaController;
 	private JTextField textFieldNome;
 
 	public Agenda() {
-		agendaController = new ServicoController(this);
+		agendaController = new AgendaController(this);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 835, 657);
 		contentPane = new JPanel();
@@ -84,11 +83,11 @@ public class Agenda extends JFrame {
 
 		textFieldNome = new JTextField();
 		textFieldNome.setColumns(10);
-		textFieldNome.setBounds(134, 159, 155, 26);
+		textFieldNome.setBounds(134, 114, 155, 26);
 		contentPane.add(textFieldNome);
 		btnEnviarAgenda.setForeground(new Color(255, 255, 255));
 		btnEnviarAgenda.setBackground(new Color(51, 209, 122));
-		btnEnviarAgenda.setBounds(483, 379, 307, 35);
+		btnEnviarAgenda.setBounds(470, 247, 320, 35);
 		contentPane.add(btnEnviarAgenda);
 
 		JPanel panel = new JPanel();
@@ -106,7 +105,7 @@ public class Agenda extends JFrame {
 		panel.add(scrollPane, BorderLayout.NORTH);
 
 		textAreaObservacao = new JTextArea();
-		textAreaObservacao.setBounds(473, 110, 317, 257);
+		textAreaObservacao.setBounds(473, 114, 317, 105);
 		contentPane.add(textAreaObservacao);
 
 		JLabel labelObservacao = new JLabel("Observação :");
@@ -117,67 +116,56 @@ public class Agenda extends JFrame {
 
 		textFieldHora = new JTextField();
 		textFieldHora.setColumns(10);
-		textFieldHora.setBounds(134, 341, 155, 26);
+		textFieldHora.setBounds(134, 320, 155, 26);
 		contentPane.add(textFieldHora);
 
 		textFieldData = new JTextField();
 		textFieldData.setColumns(10);
-		textFieldData.setBounds(134, 296, 155, 26);
+		textFieldData.setBounds(134, 269, 155, 26);
 		contentPane.add(textFieldData);
 
 		textFieldValor = new JTextField();
 		textFieldValor.setColumns(10);
-		textFieldValor.setBounds(134, 251, 155, 26);
+		textFieldValor.setBounds(134, 218, 155, 26);
 		contentPane.add(textFieldValor);
 
 		JComboBox comboBoxServico = new JComboBox();
-		comboBoxServico.setBounds(132, 203, 157, 24);
+		comboBoxServico.setBounds(134, 165, 157, 24);
 		contentPane.add(comboBoxServico);
 
 		for (Servico servico : Servico.values()) {
 			comboBoxServico.addItem(servico);
 		}
 
-		textFieldId = new JTextField();
-		textFieldId.setBounds(134, 110, 155, 26);
-		contentPane.add(textFieldId);
-		textFieldId.setColumns(10);
-
 		JLabel labelHora = new JLabel("Hora");
 		labelHora.setForeground(Color.WHITE);
 		labelHora.setFont(new Font("Dialog", Font.BOLD, 17));
-		labelHora.setBounds(36, 342, 70, 15);
+		labelHora.setBounds(34, 324, 70, 15);
 		contentPane.add(labelHora);
 
 		JLabel labelData = new JLabel("Data");
 		labelData.setForeground(Color.WHITE);
 		labelData.setFont(new Font("Dialog", Font.BOLD, 17));
-		labelData.setBounds(36, 297, 70, 15);
+		labelData.setBounds(34, 273, 70, 15);
 		contentPane.add(labelData);
 
 		JLabel labelValor = new JLabel("Valor");
 		labelValor.setForeground(Color.WHITE);
 		labelValor.setFont(new Font("Dialog", Font.BOLD, 17));
-		labelValor.setBounds(36, 252, 70, 15);
+		labelValor.setBounds(34, 222, 70, 15);
 		contentPane.add(labelValor);
 
 		JLabel labelServico = new JLabel("Serviço");
 		labelServico.setForeground(Color.WHITE);
 		labelServico.setFont(new Font("Dialog", Font.BOLD, 17));
-		labelServico.setBounds(36, 207, 70, 15);
+		labelServico.setBounds(34, 169, 70, 15);
 		contentPane.add(labelServico);
 
 		JLabel labelCliente = new JLabel("Cliente");
 		labelCliente.setForeground(Color.WHITE);
 		labelCliente.setFont(new Font("Dialog", Font.BOLD, 17));
-		labelCliente.setBounds(36, 163, 70, 15);
+		labelCliente.setBounds(34, 118, 70, 15);
 		contentPane.add(labelCliente);
-
-		JLabel labelId = new JLabel("Id");
-		labelId.setFont(new Font("Dialog", Font.BOLD, 17));
-		labelId.setForeground(new Color(255, 255, 255));
-		labelId.setBounds(36, 118, 70, 15);
-		contentPane.add(labelId);
 
 		JLabel lblNewLabel = new JLabel("Agenda");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 32));
@@ -197,11 +185,6 @@ public class Agenda extends JFrame {
 						"imagens/AgendaFundo.png")));
 		imagemDeFundoAgenda.setBounds(0, 0, 825, 627);
 		contentPane.add(imagemDeFundoAgenda);
-	}
-
-	public int getId() {
-		int id = Integer.parseInt(textFieldId.getText());
-		return id;
 	}
 
 	public int getValor() {

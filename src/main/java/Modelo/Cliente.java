@@ -1,7 +1,6 @@
 package Modelo;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
 import javax.persistence.Table;
 
 @Entity

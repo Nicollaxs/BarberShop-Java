@@ -1,3 +1,8 @@
+import javax.persistence.EntityManager;
+
+import Controller.db.JPAUtil;
+import Modelo.Agendamento;
+import Modelo.Servico;
 import View.Login;
 
 public class Main {
@@ -7,17 +12,11 @@ public class Main {
 		login.exibirLogin();
 
 		// EntityManager em = JPAUtil.getEnityManager();
-		// Login login = new Login();
-		// login.exibirLogin();
 
-		// Cliente cliente = new Cliente("Mateus", "M", "15/04/2024 14:00", "alou",
-		// "@gmail", "teste", "teste", "teste");
-		// Usuario usuario = new Usuario("Nicollas", "M", "04/04/2003 14:00",
-		// "61983151",
-		// "nicollas@gmail.com", "5458",
-		// "nic", "A");
+		// Agendamento agenda = new Agendamento("Nicollas", Servico.CABELO, 30,
+		// "03/01/2024 14:00", "");
 		// em.getTransaction().begin();
-		// em.persist(usuario);
+		// em.persist(agenda);
 		// em.getTransaction().commit();
 		// em.close();
 

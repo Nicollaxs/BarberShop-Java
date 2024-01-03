@@ -4,7 +4,7 @@ public enum Servico {
 
     CABELO,
     BARBA,
-    SOMBRANCELHA,
+    SOBRANCELHA,
     DEPILACAO
     
 }

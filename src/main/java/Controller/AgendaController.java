@@ -8,13 +8,13 @@ import Controller.db.JPAUtil;
 import Modelo.Servico;
 import View.Agenda;
 
-public class ServicoController {
+public class AgendaController {
 
     private Agenda agenda;
     private AgendaHelper agendaHelper;
     private EntityManager em = JPAUtil.getEnityManager();
 
-    public ServicoController(Agenda agenda) {
+    public AgendaController(Agenda agenda) {
         this.agenda = agenda;
         this.agendaHelper = new AgendaHelper(agenda);
     }

@@ -2,7 +2,7 @@ package Controller.db;
 
 import javax.persistence.EntityManager;
 
-import Modelo.Servico;
+import Modelo.Agendamento;
 
 public class AgendaDAO {
 
@@ -12,8 +12,8 @@ public class AgendaDAO {
         this.em = em;
     }
 
-    public void salvarAgenda(Servico servico) {
-        em.persist(servico);
+    public void salvarAgenda(Agendamento agenda) {
+        em.persist(agenda);
     }
 
 }

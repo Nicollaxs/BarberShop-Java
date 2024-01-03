@@ -7,7 +7,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.swing.JOptionPane;
 
-
 import Controller.Helper.LoginHelper;
 import Controller.db.JPAUtil;
 import Modelo.Usuario;

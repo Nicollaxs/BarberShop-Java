@@ -4,20 +4,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Agendamento {
 
-    private int id;
-    private Cliente cliente;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    protected int id;
+    private String cliente;
     private Servico servico;
     private float valor;
     private Date data;
     private String observacao;
 
-    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data) {
-        this.id = id;
+    public Agendamento(String cliente, Servico servico, float valor, String data, String observacao) {
         this.cliente = cliente;
         this.servico = servico;
         this.valor = valor;
+        this.observacao = observacao;
 
         try {
             this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
@@ -35,11 +43,11 @@ public class Agendamento {
         this.id = id;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
