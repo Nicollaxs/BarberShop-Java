@@ -3,7 +3,6 @@ package Controller;
 import javax.persistence.EntityManager;
 
 import Controller.Helper.AgendaHelper;
-import Controller.db.AgendaDAO;
 import Controller.db.JPAUtil;
 import Modelo.Agendamento;
 import Modelo.Servico;

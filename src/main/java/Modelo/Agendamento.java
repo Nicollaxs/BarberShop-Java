@@ -26,6 +26,7 @@ public class Agendamento {
         this.cliente = cliente;
         this.servico = servico;
         this.valor = valor;
+        this.hora = hora;
         this.observacao = observacao;
 
         try {

@@ -37,7 +37,6 @@ public class Agenda extends JFrame {
 	private AgendaController agendaController;
 	private JTextField textFieldNome;
 	private JComboBox<Servico> comboBoxServico;
-	private Servico itemSelecionado;
 
 	public Agenda() {
 		agendaController = new AgendaController(this);
