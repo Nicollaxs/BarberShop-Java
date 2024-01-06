@@ -1,7 +1,9 @@
-.gitignore
+# Ignora diretórios específicos
 /target/
 /inutil/
-.classpath
-.project
+
+# Ignora arquivos específicos
+/.classpath
+/.project
 *.jar
 miglayout-src.zip
