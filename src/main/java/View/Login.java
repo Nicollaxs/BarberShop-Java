@@ -91,14 +91,14 @@ public class Login extends JFrame {
 
         JLabel imagemDeFundo = new JLabel("");
         imagemDeFundo.setFont(new Font("Dialog", Font.BOLD, 25));
-        imagemDeFundo.setIcon(new ImageIcon(getClass().getResource("imagens/painel-login.png")));
+        imagemDeFundo.setIcon(new ImageIcon("src/imagens/painel-login.png"));
         imagemDeFundo.setBounds(61, 165, 441, 335);
         imagemDeFundo.setBackground(Color.WHITE);
         contentPane.add(imagemDeFundo);
 
         JLabel painelPreto = new JLabel("");
         painelPreto.setBounds(0, -49, 600, 885);
-        painelPreto.setIcon(new ImageIcon(getClass().getResource("imagens/Logo.jpg")));
+        painelPreto.setIcon(new ImageIcon("src/imagens/Logo.jpg"));
         contentPane.add(painelPreto);
     }
 

@@ -201,15 +201,13 @@ public class Agenda extends JFrame {
 		contentPane.add(lblNewLabel);
 
 		JLabel painelPretoAgenda = new JLabel("");
-		painelPretoAgenda.setIcon(new ImageIcon(
-				getClass().getResource("imagens/Agenda-PainelFundo.png")));
+		painelPretoAgenda.setIcon(new ImageIcon("src/imagens/Agenda-PainelFundo.png"));
 		painelPretoAgenda.setBounds(-24, 12, 837, 603);
 		contentPane.add(painelPretoAgenda);
 
 		JLabel imagemDeFundoAgenda = new JLabel("");
 		imagemDeFundoAgenda.setIcon(new ImageIcon(
-				getClass().getResource(
-						"imagens/AgendaFundo.png")));
+				"src/imagens/AgendaFundo.png"));
 		imagemDeFundoAgenda.setBounds(0, 0, 825, 627);
 		contentPane.add(imagemDeFundoAgenda);
 	}
