@@ -39,6 +39,7 @@ public class Agenda extends JFrame {
 	private AgendaController agendaController;
 	private JTextField textFieldNome;
 	private JComboBox<Servico> comboBoxServico;
+	private DefaultTableModel model;
 
 	public Agenda() {
 		agendaController = new AgendaController(this);
@@ -52,7 +53,7 @@ public class Agenda extends JFrame {
 
 		List<Agendamento> listaAgendamentos = agendaController.listar();
 
-		DefaultTableModel model = new DefaultTableModel(
+		model = new DefaultTableModel(
 				new Object[][] {},
 				new String[] {
 						"Id",
@@ -79,6 +80,8 @@ public class Agenda extends JFrame {
 			}
 		};
 
+		table = new JTable(model);
+
 		for (Agendamento agendamento : listaAgendamentos) {
 			Object[] rowData = {
 					agendamento.getId(),
@@ -96,6 +99,7 @@ public class Agenda extends JFrame {
 		btnEnviarAgenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				agendaController.salvaAgenda();
+				atualizarTabela(agendaController.listar());
 				textAreaObservacao.setText("");
 				textFieldData.setText("");
 				textFieldHora.setText("");
@@ -208,6 +212,23 @@ public class Agenda extends JFrame {
 						"imagens/AgendaFundo.png")));
 		imagemDeFundoAgenda.setBounds(0, 0, 825, 627);
 		contentPane.add(imagemDeFundoAgenda);
+	}
+
+	public void atualizarTabela(List<Agendamento> listaAgendamentos) {
+		model.setRowCount(0); // Limpa as linhas existentes
+
+		for (Agendamento agendamento : listaAgendamentos) {
+			Object[] rowData = {
+					agendamento.getId(),
+					agendamento.getCliente(),
+					agendamento.getServico(),
+					agendamento.getValor(),
+					agendamento.getData(),
+					agendamento.getHora(),
+					agendamento.getObservacao()
+			};
+			model.addRow(rowData);
+		}
 	}
 
 	public int getValor() {

@@ -16,15 +16,15 @@ public class AgendaController {
 
     private Agenda agenda;
     private AgendaHelper agendaHelper;
-    private EntityManager em = JPAUtil.getEnityManager();
+    private EntityManager em;
 
     public AgendaController(Agenda agenda) {
         this.agenda = agenda;
         this.agendaHelper = new AgendaHelper(agenda);
+        this.em = JPAUtil.getEnityManager();
     }
 
     public void salvaAgenda() {
-
         int valor = agenda.getValor();
         String nome = agenda.getNome();
         String data = agenda.getData();
@@ -36,8 +36,6 @@ public class AgendaController {
         em.getTransaction().begin();
         em.persist(agendamento);
         em.getTransaction().commit();
-        em.close();
-
     }
 
     public List<Agendamento> listar() {
@@ -45,5 +43,11 @@ public class AgendaController {
         Query query = em.createQuery(jpql);
         List<Agendamento> listaAgendamento = query.getResultList();
         return listaAgendamento;
+    }
+
+    public void fecharEntityManager() {
+        if (em != null && em.isOpen()) {
+            em.close();
+        }
     }
 }
