@@ -1,5 +1,6 @@
+.gitignore
 /target/
 /inutil/
-/.classpath/
-.project
+.classpath
+/.project/
 *.jar
