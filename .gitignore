@@ -2,5 +2,6 @@
 /target/
 /inutil/
 .classpath
-/.project/
+.project
 *.jar
+miglayout-src.zip
