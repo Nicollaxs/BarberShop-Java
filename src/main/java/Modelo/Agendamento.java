@@ -22,6 +22,10 @@ public class Agendamento {
     private String hora;
     private String observacao;
 
+    public Agendamento() {
+
+    }
+
     public Agendamento(String cliente, Servico servico, float valor, String data, String hora, String observacao) {
         this.cliente = cliente;
         this.servico = servico;

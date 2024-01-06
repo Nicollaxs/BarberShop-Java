@@ -1,12 +1,16 @@
 package Controller;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import com.mysql.cj.QueryResult;
 
 import Controller.Helper.AgendaHelper;
 import Controller.db.JPAUtil;
 import Modelo.Agendamento;
 import Modelo.Servico;
 import View.Agenda;
+import java.util.List;
 
 public class AgendaController {
 
@@ -34,5 +38,12 @@ public class AgendaController {
         em.getTransaction().commit();
         em.close();
 
+    }
+
+    public List<Agendamento> listar() {
+        String jpql = "Select e From Agendamento e";
+        Query query = em.createQuery(jpql);
+        List<Agendamento> listaAgendamento = query.getResultList();
+        return listaAgendamento;
     }
 }

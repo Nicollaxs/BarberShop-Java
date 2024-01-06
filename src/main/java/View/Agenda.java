@@ -18,11 +18,13 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.AgendaController;
+import Modelo.Agendamento;
 import Modelo.Servico;
 
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class Agenda extends JFrame {
@@ -47,6 +49,8 @@ public class Agenda extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		List<Agendamento> listaAgendamentos = agendaController.listar();
 
 		DefaultTableModel model = new DefaultTableModel(
 				new Object[][] {},
@@ -74,6 +78,19 @@ public class Agenda extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		};
+
+		for (Agendamento agendamento : listaAgendamentos) {
+			Object[] rowData = {
+					agendamento.getId(),
+					agendamento.getCliente(),
+					agendamento.getServico(),
+					agendamento.getValor(),
+					agendamento.getData(),
+					agendamento.getHora(),
+					agendamento.getObservacao()
+			};
+			model.addRow(rowData);
+		}
 
 		JButton btnEnviarAgenda = new JButton("Enviar");
 		btnEnviarAgenda.addActionListener(new ActionListener() {
