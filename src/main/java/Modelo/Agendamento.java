@@ -19,16 +19,17 @@ public class Agendamento {
     private Servico servico;
     private float valor;
     private Date data;
+    private String hora;
     private String observacao;
 
-    public Agendamento(String cliente, Servico servico, float valor, String data, String observacao) {
+    public Agendamento(String cliente, Servico servico, float valor, String data, String hora, String observacao) {
         this.cliente = cliente;
         this.servico = servico;
         this.valor = valor;
         this.observacao = observacao;
 
         try {
-            this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
+            this.data = new SimpleDateFormat("dd/MM/yyyy").parse(data);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -81,5 +82,13 @@ public class Agendamento {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 }

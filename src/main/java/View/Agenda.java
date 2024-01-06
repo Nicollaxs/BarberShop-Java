@@ -36,6 +36,8 @@ public class Agenda extends JFrame {
 	private JTable table;
 	private AgendaController agendaController;
 	private JTextField textFieldNome;
+	private JComboBox<Servico> comboBoxServico;
+	private Servico itemSelecionado;
 
 	public Agenda() {
 		agendaController = new AgendaController(this);
@@ -78,6 +80,11 @@ public class Agenda extends JFrame {
 		btnEnviarAgenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				agendaController.salvaAgenda();
+				textAreaObservacao.setText("");
+				textFieldData.setText("");
+				textFieldHora.setText("");
+				textFieldNome.setText("");
+				textFieldValor.setText("");
 			}
 		});
 
@@ -129,7 +136,7 @@ public class Agenda extends JFrame {
 		textFieldValor.setBounds(134, 218, 155, 26);
 		contentPane.add(textFieldValor);
 
-		JComboBox comboBoxServico = new JComboBox();
+		comboBoxServico = new JComboBox();
 		comboBoxServico.setBounds(134, 165, 157, 24);
 		contentPane.add(comboBoxServico);
 
@@ -192,6 +199,11 @@ public class Agenda extends JFrame {
 		return valor;
 	}
 
+	public String getNome() {
+		String nome = textFieldNome.getText();
+		return nome;
+	}
+
 	public String getData() {
 		String data = textFieldData.getText();
 		return data;
@@ -205,6 +217,11 @@ public class Agenda extends JFrame {
 	public String getObservacao() {
 		String obs = textAreaObservacao.getText();
 		return obs;
+	}
+
+	public Servico getServico() {
+		Servico itemSelecionado = (Servico) comboBoxServico.getSelectedItem();
+		return itemSelecionado;
 	}
 
 	public void exibirTelaAgenda() {
