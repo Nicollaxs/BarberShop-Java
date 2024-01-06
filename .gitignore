@@ -1,2 +1,5 @@
 /target/
 /inutil/
+/.classpath/
+.project
+*.jar
